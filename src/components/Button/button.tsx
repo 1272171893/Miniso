@@ -25,6 +25,7 @@ interface BaseButtonProps {
 
 type NativeButtonProps =BaseButtonProps & React.ButtonHTMLAttributes<HTMLElement>;
 type AnchorButtonProps =BaseButtonProps & React.AnchorHTMLAttributes<HTMLElement>;
+//将交叉类型的的属性都变成可选
 export type ButtonProps =Partial<NativeButtonProps & AnchorButtonProps>;
 
 const Button: React.FC<ButtonProps> = (props) => {
