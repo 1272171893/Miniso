@@ -1,18 +1,15 @@
 import React from "react";
 import classNames from "classnames";
-
 export enum ButtonSize {
   Large = "lg",
   Small = "sm",
 }
-
 export enum ButtonType {
   Primary = "primary",
   Default = "default",
   Danger = "danger",
   Link = "link",
 }
-
 interface BaseButtonProps {
   className?: string;
   disabled?: boolean;
@@ -21,12 +18,10 @@ interface BaseButtonProps {
   children: React.ReactNode;
   href?: string;
 }
-
 type NativeButtonProps =BaseButtonProps & React.ButtonHTMLAttributes<HTMLElement>;
 type AnchorButtonProps =BaseButtonProps & React.AnchorHTMLAttributes<HTMLElement>;
 //将交叉类型的的属性都变成可选
 export type ButtonProps =Partial<NativeButtonProps & AnchorButtonProps>;
-
 const Button: React.FC<ButtonProps> = (props) => {
   const { className,disabled, size, btnType, children, href,...restProps } = props;
   //默认是btn类
@@ -48,10 +43,8 @@ const Button: React.FC<ButtonProps> = (props) => {
     </button>
   );
 };
-
 Button.defaultProps = {
   disabled: false,
   btnType: ButtonType.Default,
 };
-
 export default Button;
