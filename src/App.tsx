@@ -1,4 +1,6 @@
 import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCoffee } from "@fortawesome/free-solid-svg-icons";
 import Button, { ButtonType, ButtonSize } from "./components/Button/button";
 import Menu from "./components/Menu/menu";
 import MenuItem from "./components/Menu/menuItem";
@@ -7,6 +9,7 @@ import SubMenu from "./components/Menu/subMenu";
 function App() {
   return (
     <div className="App">
+      <FontAwesomeIcon icon={faCoffee} size="lg"></FontAwesomeIcon>
       <Button autoFocus>hello</Button>
       <Button disabled>hello</Button>
       <Button btnType={ButtonType.Primary} size={ButtonSize.Large}>hello</Button>
