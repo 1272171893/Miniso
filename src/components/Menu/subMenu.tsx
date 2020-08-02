@@ -12,7 +12,10 @@ const SubMenu: React.FC<SubMenuProps> = (props) => {
   const { index, title, className, children } = props;
   const context = useContext(MenuContext);
   const openedSubMenus = context.defaultOpenSubMenus as Array<string>;
-  const isOpened = (index&&context.mode==="vertical")?openedSubMenus.includes(index):false;
+  const isOpened =
+    index && context.mode === "vertical"
+      ? openedSubMenus.includes(index)
+      : false;
   const [menuOpen, setMenuOpen] = useState(isOpened);
   const handlerClick = (e: React.MouseEvent) => {
     e.preventDefault();
@@ -29,13 +32,15 @@ const SubMenu: React.FC<SubMenuProps> = (props) => {
     context.mode === "vertical" ? { onClick: handlerClick } : {};
   const hoverEvents =
     context.mode !== "vertical"
-      ? { 
+      ? {
           onMouseEnter: (e: React.MouseEvent) => handlerMouse(e, true),
           onMouseLeave: (e: React.MouseEvent) => handlerMouse(e, false),
-         }
+        }
       : {};
   const classes = classNames("menu-item submenu-item", className, {
     "is-active": context.index === index,
+    "is-opened": menuOpen,
+    "is-vertical": context.mode === "vertical",
   });
   const renderChildren = () => {
     const subMenuClasses = classNames("miniso-submenu", {
@@ -44,7 +49,7 @@ const SubMenu: React.FC<SubMenuProps> = (props) => {
     const childrenComponent = React.Children.map(children, (child, i) => {
       const childElement = child as FunctionComponentElement<MenuItemProps>;
       if (childElement.type.displayName === "MenuItem") {
-        return React.cloneElement(childElement,{index:`${index}-${i}`}) ;
+        return React.cloneElement(childElement, { index: `${index}-${i}` });
       }
       console.error(
         "warning:Menu has a child which is not a MenuItem component"
@@ -56,7 +61,7 @@ const SubMenu: React.FC<SubMenuProps> = (props) => {
     <li key={index} className={classes} {...hoverEvents}>
       <div className="submenu-item" {...cliclEvents}>
         {title}
-        <Icon icon="angle-down" className='arrow-icon'></Icon>
+        <Icon icon="angle-down" className="arrow-icon"></Icon>
       </div>
       {renderChildren()}
     </li>
