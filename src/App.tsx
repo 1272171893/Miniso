@@ -11,7 +11,7 @@ function App() {
   return (
     <div className="App">
       {/* <FontAwesomeIcon icon={faCoffee} size="lg"></FontAwesomeIcon> */}
-      <Icon icon="arrow-down" size="lg" theme="danger"></Icon>
+      <Icon icon="arrow-down" size="lg" theme="info"></Icon>
       <Button autoFocus>hello</Button>
       <Button disabled>hello</Button>
       <Button btnType={ButtonType.Primary} size={ButtonSize.Large}>hello</Button>
