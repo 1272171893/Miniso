@@ -56,7 +56,7 @@ const SubMenu: React.FC<SubMenuProps> = (props) => {
         "warning:Menu has a child which is not a MenuItem component"
       );
     });
-    return (<CSSTransition in={menuOpen} timeout={300} classNames="zoom-in-top" appear>
+    return (<CSSTransition in={menuOpen} timeout={300} unmountOnExit classNames="zoom-in-top" appear>
         <ul className={subMenuClasses}>{childrenComponent}</ul>
       </CSSTransition>);
   };
