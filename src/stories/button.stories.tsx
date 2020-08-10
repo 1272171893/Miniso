@@ -3,11 +3,11 @@ import { storiesOf } from "@storybook/react";
 import { action } from "@storybook/addon-actions";
 import { withInfo } from "@storybook/addon-info";
 import Button from "../components/Button/button";
-const styles: React.CSSProperties = {
-  textAlign: "center",
-};
+// const styles: React.CSSProperties = {
+//   textAlign: "center",
+// };
 
-const CenterDecorator = ( storyFn: any ) =>(<div style={styles}>{storyFn()}</div>)
+// const CenterDecorator = ( storyFn: any ) =>(<div style={styles}>{storyFn()}</div>)
 
 const defaultButton = () => (
   <Button onClick={action("clicked")}>default button</Button>
@@ -31,7 +31,7 @@ storiesOf("Button component", module)
   .addDecorator(withInfo)
   .addParameters({info:{
     text:"this is a very nice components",
-    inline:true
+    inline:true,
   }})
   .add("默认 Button", defaultButton)
   .add("不同size Button", ButtonWithSize)

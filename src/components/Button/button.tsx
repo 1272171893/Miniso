@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FC, ReactNode, ButtonHTMLAttributes, AnchorHTMLAttributes  } from "react";
 import classNames from "classnames";
 export enum ButtonSize {
   Large = "lg",
@@ -15,14 +15,14 @@ interface BaseButtonProps {
   disabled?: boolean;
   size?: ButtonSize;
   btnType?: ButtonType;
-  children: React.ReactNode;
+  children: ReactNode;
   href?: string;
 }
-type NativeButtonProps =BaseButtonProps & React.ButtonHTMLAttributes<HTMLElement>;
-type AnchorButtonProps =BaseButtonProps & React.AnchorHTMLAttributes<HTMLElement>;
+type NativeButtonProps =BaseButtonProps & ButtonHTMLAttributes<HTMLElement>;
+type AnchorButtonProps =BaseButtonProps & AnchorHTMLAttributes<HTMLElement>;
 //将交叉类型的的属性都变成可选
 export type ButtonProps =Partial<NativeButtonProps & AnchorButtonProps>;
-const Button: React.FC<ButtonProps> = (props) => {
+export const Button: FC<ButtonProps> = (props) => {
   const { className,disabled, size, btnType, children, href,...restProps } = props;
   //默认是btn类
   const classes = classNames("btn",className, {
