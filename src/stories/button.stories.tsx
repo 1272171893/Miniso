@@ -1,6 +1,7 @@
 import React from "react";
 import { storiesOf } from "@storybook/react";
 import { action } from "@storybook/addon-actions";
+import { withInfo } from "@storybook/addon-info";
 import Button from "../components/Button/button";
 const styles: React.CSSProperties = {
   textAlign: "center",
@@ -27,7 +28,11 @@ const ButtonWithType = () => (
   </>
 );
 storiesOf("Button component", module)
-  .addDecorator(CenterDecorator)
+  .addDecorator(withInfo)
+  .addParameters({info:{
+    text:"this is a very nice components",
+    inline:true
+  }})
   .add("默认 Button", defaultButton)
   .add("不同size Button", ButtonWithSize)
   .add("不同type Button", ButtonWithType);
