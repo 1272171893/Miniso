@@ -10,7 +10,7 @@ library.add(fas);
 function App() {
   return (
     <div className="App">
-      <Fragment>
+      {false && <Fragment>
         <Icon icon="arrow-down" size="lg" theme="info"></Icon>
         <Button autoFocus>hello</Button>
         <Button disabled>hello</Button>
@@ -28,7 +28,7 @@ function App() {
             <MenuItem>dropdown2</MenuItem>
           </SubMenu>
         </Menu>
-      </Fragment>
+      </Fragment>}
     </div>
   );
 }
