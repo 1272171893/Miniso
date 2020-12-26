@@ -61,13 +61,13 @@
   cursor: pointer;
   outline: none;
   transition: $btn-transition;
-  //   &.disabled,
-  //   &[disabled] {
-  //     cursor: not-allowed;
-  //     opacity: $btn-disabled-opacity;
-  //     box-shadow: none;
-  //     pointer-events: none;
-  //   }
+  &.disabled,
+  &[disabled] {
+    cursor: not-allowed;
+    opacity: $btn-disabled-opacity;
+    box-shadow: none;
+    pointer-events: none;
+  }
   &:focus,
   &:hover {
     border-radius: $input-border-radius;
