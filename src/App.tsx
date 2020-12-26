@@ -52,13 +52,15 @@ function App() {
       )}
       <Input
         placeholder="请输入内容"
-        // defaultValue='你好啊'
+        defaultValue='你好啊'
+        bordered={false}
         onChange={(e: ChangeEvent<any>) => setValue(e.target.value)}
       ></Input>
       <Input
         placeholder="请输入内容"
         disabled={true}
-        defaultValue="1111"
+        bordered={false}
+        value={value}
         onChange={(e: ChangeEvent<any>) => console.log(e.target.value)}
       ></Input>
     </div>

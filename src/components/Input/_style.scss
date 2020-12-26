@@ -56,7 +56,6 @@
   border-radius: $input-border-radius;
   border: $input-border-width solid $input-border-color;
   padding: $input-padding-y $input-padding-x;
-  // @include button-size($btn-padding-y, $btn-padding-x, $btn-font-size, $border-radius);
   box-shadow: $input-box-shadow;
   cursor: pointer;
   outline: none;
@@ -72,5 +71,10 @@
   &:hover {
     border-radius: $input-border-radius;
     border: $input-border-width solid $primary;
+  }
+
+  &.no_border {
+    border: 0;
+    box-shadow: none;
   }
 }
